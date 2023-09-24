@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shuffle.Models;
 using Shuffle.Services.Interfaces;
 
@@ -21,6 +22,7 @@ public class PostController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<List<Post>>> GetAllPosts()
     {
         var result = await _postService.FindAll();
@@ -28,6 +30,7 @@ public class PostController : ControllerBase
     }
     
     [HttpGet("{id:guid}")]
+    [Authorize]
     public async Task<ActionResult<Post>> GetPostById(Guid id)
     {
         var result = await _postService.FindById(id); 
@@ -39,6 +42,7 @@ public class PostController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<List<Post>>> AddPost([FromBody] Post request)
     {
         var result = await _postService.Create(request);
@@ -46,6 +50,7 @@ public class PostController : ControllerBase
     }
     
     [HttpPut]
+    [Authorize]
     public async Task<ActionResult<List<Post>>> UpdatePost([FromBody] Post request)
     {
         var result = await _postService.Update(request);
@@ -57,6 +62,7 @@ public class PostController : ControllerBase
     }
     
     [HttpDelete("{id:guid}")]
+    [Authorize]
     public async Task<ActionResult<List<Post>>> DeletePost(Guid id)
     {
         var result = await _postService.Delete(id);

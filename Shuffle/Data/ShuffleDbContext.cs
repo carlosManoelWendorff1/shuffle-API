@@ -8,4 +8,5 @@ public class ShuffleDbContext : DbContext
     public ShuffleDbContext(DbContextOptions<ShuffleDbContext> options) : base(options) { }
     
     public DbSet<Post> Posts { get; set; }
+    public DbSet<User> Users { get; set; }
 }

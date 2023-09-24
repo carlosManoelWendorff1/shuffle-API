@@ -4,7 +4,17 @@ namespace Shuffle.Models;
 
 public class Post : AuditableEntity
 {
-    public string Title { get; set; } = string.Empty;
-    public string Content { get; set; } = string.Empty;
-    public Guid PersonId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+    public Guid UserId { get; set; }
+    public virtual User User { get; set; }
+
+    public Post() { }
+    
+    public Post(string title, string content, Guid userId)
+    {
+        Title = title;
+        Content = content;
+        UserId = userId;
+    }
 }
