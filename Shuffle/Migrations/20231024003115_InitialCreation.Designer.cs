@@ -11,8 +11,8 @@ using Shuffle.Data;
 namespace Shuffle.Migrations
 {
     [DbContext(typeof(ShuffleDbContext))]
-    [Migration("20230924193106_CreateUserEntity")]
-    partial class CreateUserEntity
+    [Migration("20231024003115_InitialCreation")]
+    partial class InitialCreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
